@@ -9,4 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface Pokemon1Repository extends MongoRepository<Pokemon1, String> {
     Pokemon1 findBynome(String nomPokemon1);
     void deleteBynome(String nomPokemon1);
-}kk
+}
