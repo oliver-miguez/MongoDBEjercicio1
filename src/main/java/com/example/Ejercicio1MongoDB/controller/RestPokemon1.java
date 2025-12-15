@@ -2,9 +2,10 @@ package com.example.Ejercicio1MongoDB.controller;
 
 import com.example.Ejercicio1MongoDB.model.Pokemon1;
 import com.example.Ejercicio1MongoDB.service.Pokemon1Service;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -49,6 +50,25 @@ public class RestPokemon1 {
     public ResponseEntity<String> importar() {
         pokemon1Service.importarJSON();
         return ResponseEntity.ok("Pokemon importado correctamente");
+    }
+
+    @GetMapping(value = "/exportar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<byte[]> exportarUsuarios() throws JsonProcessingException {
+
+        List<Pokemon1> usuarios = pokemon1Service.listAll();
+
+        ObjectMapper mapper = new ObjectMapper();
+        byte[] jsonBytes = mapper.writeValueAsBytes(usuarios);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setContentDisposition(
+                ContentDisposition.attachment()
+                        .filename("Pokemons.json")
+                        .build()
+        );
+
+        return new ResponseEntity<>(jsonBytes, headers, HttpStatus.OK);
     }
 
 }
