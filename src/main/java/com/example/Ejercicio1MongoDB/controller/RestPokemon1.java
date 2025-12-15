@@ -53,12 +53,12 @@ public class RestPokemon1 {
     }
 
     @GetMapping(value = "/exportar", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<byte[]> exportarUsuarios() throws JsonProcessingException {
+    public ResponseEntity<byte[]> exportarPokemon() throws JsonProcessingException {
 
-        List<Pokemon1> usuarios = pokemon1Service.listAll();
+        List<Pokemon1> pokemon1 = pokemon1Service.listAll();
 
         ObjectMapper mapper = new ObjectMapper();
-        byte[] jsonBytes = mapper.writeValueAsBytes(usuarios);
+        byte[] jsonBytes = mapper.writeValueAsBytes(pokemon1);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
