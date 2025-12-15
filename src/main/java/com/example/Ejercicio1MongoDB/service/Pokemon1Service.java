@@ -12,7 +12,6 @@ public class Pokemon1Service {
     @Autowired
     private Pokemon1Repository pokemon1Repository;
 
-    @pokemon1Repository
     public Pokemon1Service(Pokemon1Repository pokemon1Repository) {
         this.pokemon1Repository = pokemon1Repository;
     }
@@ -30,11 +29,11 @@ public class Pokemon1Service {
     }
 
     public void delete(){
-        pokemon1Repository.deleteByNamePokemon1("OoT");
+        pokemon1Repository.deleteBynome("OoT");
     }
 
     public Pokemon1 getVideoxogoOot() {
-        return pokemon1Repository.findByNamePokemon1("OoT");
+        return pokemon1Repository.findBynome("OoT");
     }
 
 }

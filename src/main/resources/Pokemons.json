@@ -1,0 +1,13 @@
+[
+  {
+    "nome": "Bulbasaur",
+    "tipo": ["Planta", "Veneno"],
+    "nivel": 5,
+    "habilidades": ["Espesura"],
+    "adestrador1": {
+      "nome": "Ash",
+      "edad": 10,
+      "cidade": "Pueblo Paleta"
+    }
+  }
+]
