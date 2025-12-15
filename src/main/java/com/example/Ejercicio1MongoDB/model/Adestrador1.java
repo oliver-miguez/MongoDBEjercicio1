@@ -1,24 +1,10 @@
 package com.example.Ejercicio1MongoDB.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "adestrador")
-public class Adestrador {
-
-    @Id
-    private String id;
+public class Adestrador1 {
 
     private String nome;
     private int edad;
     private String cidade;
-
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -39,5 +25,14 @@ public class Adestrador {
     }
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Adestrador1{" +
+                "nome='" + nome + '\'' +
+                ", edad=" + edad +
+                ", cidade='" + cidade + '\'' +
+                '}';
     }
 }

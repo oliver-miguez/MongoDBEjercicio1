@@ -17,6 +17,9 @@ public class PokemonService {
 
     public void crearPokemon(Pokemon poke){ pokemonRepository.save(poke);}
     public Pokemon buscarPokemon(String id){return pokemonRepository.findById(id).orElse(null);}
-    public List<Pokemon> buscarPokemon(){return pokemonRepository.findAll();}
+    public List<Pokemon> buscarPokemon(){
+       List<Pokemon> a = pokemonRepository.findAll();
+        return pokemonRepository.findAll();
+    }
 
 }

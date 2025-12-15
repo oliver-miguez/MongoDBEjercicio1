@@ -27,7 +27,7 @@ public class RestPokemon {
 
     @GetMapping("/listarTodos")
     public ResponseEntity<List<Pokemon>> listarColeccion() {
-        List <Pokemon> alumnos = pokemonService.buscarPokemon();
-        return new ResponseEntity<>(alumnos,HttpStatus.OK);
+        List <Pokemon> pokemon = pokemonService.buscarPokemon();
+        return new ResponseEntity<>(pokemon,HttpStatus.OK);
     }
 }
